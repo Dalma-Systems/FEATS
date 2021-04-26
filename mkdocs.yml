@@ -1,0 +1,7 @@
+site_name: FEATS
+site_url: https://feats.readthedocs.org
+site_description: FEATS project for DIH2 programme.
+repo_url: https://github.com/orchestracities/ngsi-timeseries-api
+nav:
+  - Home: 'index.md'
+theme: readthedocs
