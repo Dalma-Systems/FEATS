@@ -1,7 +1,7 @@
 site_name: FEATS
-site_url: https://feats.readthedocs.org
+site_url: https://feats-dih2.readthedocs.org
 site_description: FEATS project for DIH2 programme.
-repo_url: https://github.com/orchestracities/ngsi-timeseries-api
+repo_url: https://github.com/Dalma-Systems/FEATS.git
 nav:
   - Home: 'index.md'
 theme: readthedocs
