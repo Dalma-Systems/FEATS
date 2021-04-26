@@ -1,3 +1,6 @@
 [submodule "coffee"]
 	path = coffee
 	url = https://github.com/Dalma-Systems/coffee
+[submodule "fi-brew"]
+	path = fi-brew
+	url = https://github.com/Dalma-Systems/fi-brew
