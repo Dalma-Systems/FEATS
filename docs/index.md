@@ -1,17 +1,11 @@
-# Welcome to MkDocs
+# FEATS - FIWARE-Enabled Autonomous Transport System
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+This is the RTD page for FEATS, -- FIWARE-Enabled Autonomous Transport System -- a project within the scope of the [DIH2](http://www.dih-squared.eu/) programme.
 
-## Commands
+## Description
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies mi quis hendrerit dolor magna. Eget magna fermentum iaculis eu non diam phasellus vestibulum. Facilisis leo vel fringilla est. Nascetur ridiculus mus mauris vitae. Vitae aliquet nec ullamcorper sit amet.
 
-## Project layout
+## About
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Nulla facilisi cras fermentum odio. Sit amet facilisis magna etiam tempor orci eu lobortis elementum. Sed arcu non odio euismod lacinia. Nullam eget felis eget nunc lobortis mattis aliquam. Arcu non odio euismod lacinia. 
