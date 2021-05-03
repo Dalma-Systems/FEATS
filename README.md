@@ -1,7 +1,7 @@
 # FEATS
 
 [![FIWARE Chapter](https://img.shields.io/badge/FIWARE-Robots-45d3dd.svg)](https://www.fiware.org/developers/catalogue/)
-[![License: MIT](https://img.shields.io/badge/License-Apache%202.0-green)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green)](https://opensource.org/licenses/MIT)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4842/badge)](https://bestpractices.coreinfrastructure.org/projects/4842)
 [![Documentation Status](https://readthedocs.org/projects/feats-dih2/badge/?version=latest)](https://feats-dih2.readthedocs.io/en/latest/?badge=latest)
 
