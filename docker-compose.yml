@@ -51,7 +51,7 @@ services:
   broker-api:
     container_name: broker-api
     hostname: broker-api
-    image: broker-api
+    image: dalmasystems/broker
     networks:
       - feats
     ports:
@@ -82,7 +82,7 @@ services:
   latte-api:
     container_name: latte-api
     hostname: latte-api
-    image: latte-api
+    image: dalmasystems/latte
     networks:
       - feats
     ports:
