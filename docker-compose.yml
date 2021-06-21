@@ -57,7 +57,7 @@ services:
   broker-api:
     container_name: broker-api
     hostname: broker-api
-    image: dalmasystems/broker
+    image: dalmasystems/broker #broker-api
     networks:
       - feats
     ports:
@@ -70,7 +70,7 @@ services:
   coffee-api:
     container_name: coffee-api
     hostname: coffee-api
-    image: coffee-api
+    image: dalmasystems/coffee #coffee-api
     networks:
       - feats
     ports:
@@ -81,7 +81,7 @@ services:
   fibrew-api:
     container_name: fibrew-api
     hostname: fibrew-api
-    image: fibrew-api
+    image: dalmasystems/fibrew #fibrew-api
     networks:
       - feats
     ports:
