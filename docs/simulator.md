@@ -198,3 +198,8 @@ This means that you will see the previous logs a total of three times.
 
 ## Final check
 
+Finally, we can check that the work order was correctly executed and the system recognizes it as such:
+
+1. In Postman go to `orion > entities > get entities by id` and paste the previously obtained workorder id in the URL
+2. Send the request
+3. The response should return the full information of the work order, namely the `startedAt`, `endedAt` and `status` attribute, with the first two showing the start and end times of the work order, while the `status` should show a value of `ended`.
