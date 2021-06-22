@@ -11,21 +11,25 @@ In order to easily integrate any FEATS component with the ORION Context Broker, 
 ## Code Architecture
 
 All FEATS components are Java Spring Boot applications, and the code is always organized with the following layers:
-- web
-- service
-- interface
-- base
+<ul>
+    <li>web</li>
+    <li>service</li>
+    <li>interface</li>
+    <li>base</li>
+</ul>
 
 The "web" layer is where the REST endpoints are exposed. The "service" layer contains all the business logic. The "interface" layer contains all the internal and external [DTOs](https://java-design-patterns.com/patterns/data-transfer-object/). And the "base" layer contains all base classes and plugins configurations useful for the remaining layers.
 
 ### Broker API
 
 The broker API source code (`broker-api`) is structured into five Java projects:
-- web
-- service
-- interface
-- fiware
-- base
+<ul>
+    <li>web</li>
+    <li>service</li>
+    <li>interface</li>
+    <li>fiware</li>
+    <li>base</li>
+</ul>
 
 The "fiware" layer contains all the logic to communicate with ORION, including all the Smart Data Models used by FEATS, between them the warehouse, material, workstation and work orders, and also the connector to ORION, publishers and subscribers.
 The ORION connector is where all the HTTP calls to ORION are performed (regardless of the HTTP method). The publisher and subscriber define all the instructions to write/read to/from ORION.
@@ -35,21 +39,25 @@ This API is currently an independent component, but can easily be included in al
 ### CoFFEE API
 
 The CoFFEE API source code (`coffee-api`) is also structured into five Java projects:
-- web
-- service
-- interface
-- erp
-- base
+<ul>
+    <li>web</li>
+    <li>service</li>
+    <li>interface</li>
+    <li>erp</li>
+    <li>base</li>
+</ul>
 
 The "erp" layer contains all the logic to integrate with ERPs. To easily support integrate with more ERPs, it was implemented the [Factory design pattern](https://java-design-patterns.com/patterns/factory/). This design pattern consists in "hide the implementation logic and make client code focus on usage rather than initialization".
 
 ### FI-BREW API
 
 The FI-BREW API source code (`fibrew-api`) is also structured into five Java projects:
-- web
-- service
-- interface
-- orm
-- base
+<ul>
+    <li>web</li>
+    <li>service</li>
+    <li>interface</li>
+    <li>orm</li>
+    <li>base</li>
+</ul>
 
 The "orm" layer contains all the logic to integrate with the automatic warehouse. It uses [Object-Relational Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) to query and manipulate data from a database using object-oriented languages (in this case, Java).

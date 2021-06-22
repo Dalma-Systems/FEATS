@@ -1,12 +1,18 @@
 # Setup
 
 Before being able to simulate the system operation, we need to provide some information to the system, namely:
-- ORION entities:
-  - AMR
-  - Warehouse
-  - Idle Station
-  - Work Stations
-- MySQL DBs
+<ul>
+    <li>ORION entities:
+        <ul>
+            <li>AMR</li>
+            <li>Warehouse</li>
+            <li>Idle Station</li>
+            <li>Work Stations</li>
+        </ul>
+    </li>
+    <li>MySQL DBs</li>
+</ul>
+
 
 ## Creating MySQL databases
 
