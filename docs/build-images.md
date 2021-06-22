@@ -1,13 +1,13 @@
 # Build images
 
-FEATS is organized into X different components:
-- CoFFEE
-- FI-BREW
-- LATTE
-- FIROS
-- Broker
-- Commons
-- Contracts
+FEATS is organized into 7 different components:
+* CoFFEE
+* FI-BREW
+* LATTE
+* FIROS
+* Broker
+* Commons
+* Contracts
   
 The first three are the main components, with CoFFEE, FI-BREW and FIROS serving as interfaces between the system and the external parts, while LATTE acts as a manager / orchestrator. The `broker` is a middleware common to all main components, allowing them to communicate with an instance of the ORION context broker. `commons` and `contracts` define the Data Transfer Objects and other common code shared by all the components.
 
