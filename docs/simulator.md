@@ -107,11 +107,94 @@ Firstly, we will check that all entities created in the previous step are presen
 
 ## Creating a work order
 
+Since we do not have an ERP system connected to this simulator, we will insert work orders directly into the system, using a CoFFEE endpoint for this very purpose.
 
+1. In the Postman collection, go to `coffee > erp` and select `insert generated`
+2. In the "Body" section of the request, paste the following data:
+```json
+[
+    {
+        "orderId": "11",
+        "materialId": "11",
+        "materialDesc": "Material 11",
+        "quantity": 12.3,
+        "unit": "kg",
+        "batch": "QS11",
+        "workStationId": "0161",
+        "warehouseId": "0075",
+        "day": "2021-06-21",
+        "hour": "14:20:10"
+    }
+]
+```
+**Note:** *make sure the `workStationId` and `warehouseId` exist in the context broker (same as created previously).*
+
+**Note 2:** *change the `day` and `hour` values to a time close to the current time (e.g.: thirty seconds from now).*
+
+3. The response should be a "200 OK" with the following data, showing the internal id of the created work order:
+
+```json
+{
+    "workOrderIds": [
+        "urn:ngsi-ld:WorkOrder:04ded791633a48b48324b32e37c1d1ed"
+    ],
+    "errors": []
+}
+```
+
+4. We can check that the work order was correctly inserted by going to `orion > entities`, selecting `get entities by id` and changing the URL of the request to include the previously obtained workorder id:
+```shell
+{{orion_url}}/v2/entities/urn:ngsi-ld:WorkOrder:04ded791633a48b48324b32e37c1d1ed
+```
+This should return the full entity as it is saved in the context broker.
 
 ## Checking work order execution
 
+When the time scheduled in the previous step arrives, LATTE will send the information for the robot to start moving towards the warehouse, and the robot simulator shall begin "moving", updating its status and location in the context broker. So as to view these interactions, we will use Postman in conjunction with the logs from LATTE and the robot simulator.
 
+1. Launch two terminal sessions:
+```shell
+$ docker logs -f feats_robot-simulator_1
+$ docker logs -f latte-api
+```
+2. When the work order is triggered, you will be able to see in the LATTE logs that information:
+```shell
+2021-06-22 14:40:30.012  INFO 1 --- [almadb_Worker-2] c.d.l.s.s.SchedulerTriggerInterceptor    : Trigger TriggerExecuteWorkOrder1624372830001 fired!
+2021-06-22 14:40:30.032  INFO 1 --- [almadb_Worker-2] c.dalma.latte.service.WorkOrderService   : Starting execution of work order urn:ngsi-ld:WorkOrder:27db6ce5c47b4d7d89de8edce8ae59fd
+2021-06-22 14:40:30.068  INFO 1 --- [almadb_Worker-2] c.dalma.latte.service.util.MetricsUtil   : WORK ORDER STATUS CHANGE urn:ngsi-ld:AMR:aabbccddeeff urn:ngsi-ld:WorkOrder:27db6ce5c47b4d7d89de8edce8ae59fd assigned 2021-06-22T14:40:30.055Z
+2021-06-22 14:40:30.113  INFO 1 --- [almadb_Worker-2] c.dalma.latte.service.util.MetricsUtil   : WORK ORDER STATUS CHANGE urn:ngsi-ld:AMR:aabbccddeeff urn:ngsi-ld:WorkOrder:27db6ce5c47b4d7d89de8edce8ae59fd scheduled 2021-06-22T14:40:24.175Z
+2021-06-22 14:40:30.114  INFO 1 --- [almadb_Worker-2] c.dalma.latte.service.WorkOrderService   : Execution of work order urn:ngsi-ld:WorkOrder:27db6ce5c47b4d7d89de8edce8ae59fd started with robot urn:ngsi-ld:AMR:aabbccddeeff
+2021-06-22 14:40:30.114  INFO 1 --- [almadb_Worker-2] c.d.l.s.s.SchedulerTriggerInterceptor    : Trigger TriggerExecuteWorkOrder1624372830001 completed!
+2021-06-22 14:40:31.144  INFO 1 --- [nio-8091-exec-2] c.dalma.latte.service.WorkOrderService   : Executing pending destination urn:ngsi-ld:Warehouse:ba0a43d899b744cf9f11619258401e46 to robot urn:ngsi-ld:AMR:aabbccddeeff
+
+```
+3. At the same time, the robot simulator logs will show a series of dots, representing the movement of the robot. When it "arrives" at the destination, it will wait for 5 seconds before sending a simulated "ready" trigger:
+```shell
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+Arrived at destination! Waiting for operator input...
+.
+.
+.
+.
+.
+Operator has loaded / unloaded the AMR. Ready for next destination.
+```
+4. While the robot simulator is working, you can also consult its status on LATTE or the context broker using Postman, by going to `latte > robot > get robots` (LATTE) or `orion > entities > get entities by type (AMR)` (ORION). The coordinates and status should be changing throughout the execution of the work order.
+5. The execution of a work order consists of three "trips" made by the robot:
+   - From idle station to warehouse: robot was previously idle and needs to collect the raw material
+   - From warehouse to workstation: robot is loaded with material at the warehouse and brings it to the operator at the work station
+   - From workstation to idle station: robot has finished the delivery and waits for next work order at the idle position.
+
+This means that you will see the previous logs a total of three times.
 
 ## Final check
 
