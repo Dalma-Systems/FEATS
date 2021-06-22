@@ -7,8 +7,8 @@ nav:
   - Architecture: 'architecture.md'
   - Installation and User Manual: 
     - Installation: 'installation.md'
-    - Getting started: 'getting-started.md'
     - Build images: 'build-images.md'
+    - Getting started: 'getting-started.md'
   - Step-by-step Tutorial:
     - Using Docker: 'using-docker.md'
     - Setup: 'setup.md'
