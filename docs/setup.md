@@ -42,13 +42,62 @@ After importing, let us create the different entities:
 
 1. Go into `latte > robot` and select the POST request titled "add robot".
 2. In the "Body" section of the request, change the `macAddress` value to any one you want (we recommend `aa:bb:cc:dd:ee:ff`). If you choose a different one from the recommendation, please be aware that you will also need to change the `ROBOT_ID` environment variable in the `firos` container of the `docker-compose.yml` file.
-3. Send the request -- the response should be 201.
+3. Send the request -- the response should be 201, meaning the entity was successfully created.
 
 ### Adding a warehouse
 
+1. Go into `broker > warehouse` and select the POST request titled "add warehouse".
+2. The "Body" section of the request should be pre-filled; however, if for some reason it is empty or incorrect, it should contain a JSON object with the following data:
+```json
+{
+    "latitude": 20.95,
+    "longitude": 22.4,
+    "angle": -1.5198,
+    "name": "Armazém de Graus",
+    "status": "ready",
+    "erpId": "0075"
+}
+```
+3. Send the request -- the response should be 201, meaning the entity was successfully created.
 
 ### Adding an idle station
 
+1. Go into `broker > idle station` and select the POST request titled "add idle station".
+2. The "Body" section of the request should be pre-filled; however, if for some reason it is empty or incorrect, it should contain a JSON object with the following data:
+```json
+{
+    "latitude": 24.3,
+    "longitude": 20,
+    "angle": 0.071,
+    "name": "zona de descanso",
+    "status": "idle"
+}
+```
+3. Send the request -- the response should be 201, meaning the entity was successfully created.
 
 ### Adding two work stations
 
+1. Go into `broker > work station` and select the POST request titled "add work station".
+2. The "Body" section of the request should be pre-filled; however, if for some reason it is empty or incorrect, it should contain a JSON object with the following data:
+```json
+{
+    "latitude": 12.4,
+    "longitude": 36.9,
+    "angle": 0.0511,
+    "name": "K50_1",
+    "status": "ready",
+    "erpId": "0161"
+}
+```
+3. Send the request -- the response should be 201, meaning the entity was successfully created.
+4. Repeat for the second work station, with different data (at least the `name` and `erpId` keys should be different):
+```json
+{
+    "latitude": 12.4,
+    "longitude": 37.4,
+    "angle": -3.1378,
+    "name": "ISO_1",
+    "status": "ready",
+    "erpId": "0151"
+}
+```

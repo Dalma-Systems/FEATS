@@ -14,3 +14,5 @@ nav:
     - Setup: 'setup.md'
     - Running the simulator: 'simulator.md'
 theme: readthedocs
+markdown_extensions:
+  - sane_lists
