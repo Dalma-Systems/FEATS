@@ -40,7 +40,9 @@ Information about how to install the components of FEATS can be found in the cor
 An example of the usage of the system can be found in the corresponding section of the Read The Docs [page](https://feats-dih2.readthedocs.io/en/latest/).
 
 ## Documentation
-The full documentation can be found in the corresponding section of the Read The Docs [page](https://feats-dih2.readthedocs.io/en/latest/).
+The full documentation can be found in the corresponding section of the Read The Docs [page](https://feats-dih2.readthedocs.io/en/latest/). You may also check out our video tutorial, which follows the step-by-step guide and can help clarify some issues:
+
+[![FEATS tutorial video](http://img.youtube.com/vi/DiTcbAgMMZY/0.jpg)](https://youtu.be/DiTcbAgMMZY)
 
 ## License
 
