@@ -19,3 +19,4 @@
 [submodule "latte"]
         path = latte
         url = https://github.com/Dalma-Systems/latte.git
+        branch = main
